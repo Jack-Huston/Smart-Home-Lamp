@@ -58,7 +58,7 @@
           <i data-lucide="user"></i><span>Solo Build</span>
         </div>
         <div class="meta-item">
-          <i data-lucide="tool"></i><span>Hobby Project</span>
+          <i data-lucide="wrench"></i><span>Hobby Project</span>
         </div>
         <div class="meta-item">
           <i data-lucide="cable"></i><span>USB-C Powered</span>
@@ -83,14 +83,14 @@
           <div>
             <h3 class="overview-heading">Idea</h3>
             <p class="overview-text">
-              Build two identical desk lamps that double as tactile IoT controllers. A rotating outer shell with a hidden magnet ring drives input; a capacitive copper pad provides click/hold gestures. LEDs under a translucent PLA body glow through the surface for feedback and illumination.
+              Build two identical desk lamps that double as tactile Internet of Things (IoT) controllers. A rotating outer shell with a hidden magnet ring drives input; a capacitive copper pad provides click/hold gestures. RGB LEDs under a translucent PLA body glow through the surface for feedback and illumination.
             </p>
           </div>
 
           <div>
             <h3 class="overview-heading">What They Can Do</h3>
             <p class="overview-text">
-              Because they’re networked, the lamps can control brightness and color, set kitchen timers, or even send color “messages” between devices anywhere in the world. The design avoids a traditional rotary encoder (blocked by the axial touch pad) by sensing magnetic field rotation instead.
+              Because they’re networked, the lamps can control brightness and color, set kitchen timers, or even send color “messages” between devices anywhere in the world. As they are connected to the Arduino Cloud, they can be integrated into all Amazon, Alexa, or Google Home systems. The design avoids a traditional rotary encoder (which would be blocked by the axial touch pad) by sensing magnetic field rotation instead.
             </p>
           </div>
 
@@ -131,7 +131,7 @@
         <div class="detail-content">
           <h3 class="detail-title">Magnet-Ring Rotation Sensing</h3>
           <p class="detail-text">
-            A rotating outer housing carries a ring of <strong>48 permanent magnets</strong>. Two hall-effect sensors are mounted 90° electrical apart, producing out-of-phase signals. The microcontroller compares the phase relationship to determine <em>direction</em> and counts zero-crossings for <em>steps</em>, emulating an encoder without one.
+            A rotating outer housing carries a ring of <strong>48 permanent magnets</strong>. Two hall-effect sensors are mounted 41.25° apart, producing out-of-phase magnetic signals. The microcontroller compares the phase relationship to determine <em>direction</em> and counts zero-crossings for <em>steps</em>, emulating an encoder without one. Because of the axial button and housing axis, traditional rotation sensing methods could not be used.
           </p>
           <ul class="detail-list">
             <li>Quadrature-style decoding from dual hall sensors</li>
@@ -152,12 +152,11 @@
         <div class="detail-content">
           <h3 class="detail-title">Capacitive Touch &amp; Gestures</h3>
           <p class="detail-text">
-            The top copper pad senses touch/hold/double-tap. Placing the pad on the rotation axis preserves symmetry and eliminates wiring through a spinning joint. Gestures gate modes (e.g., hold to pair, tap to confirm) while rotation adjusts the selected parameter.
+            The top copper pad senses touch/hold/double-tap. Placing the pad on the rotation axis preserves symmetry and eliminates wiring through a spinning joint which would have required an expensive slip-ring. Gestures gate modes (e.g., hold to pair, tap to confirm/send command) while rotation adjusts the selected parameter.
           </p>
           <ul class="detail-list">
             <li>Touch filtering with moving average + threshold tracking</li>
             <li>Tap/hold/double-tap gesture state machine</li>
-            <li>LED feedback animations under translucent PLA</li>
           </ul>
         </div>
       </div>
@@ -169,7 +168,7 @@
         <div class="detail-content">
           <h3 class="detail-title">IoT Control &amp; Use Cases</h3>
           <p class="detail-text">
-            An IoT-enabled Arduino (ESP-class) publishes events and subscribes to commands. The pair can mirror each other’s color, act as remote dimmer knobs, or push values to home-automation scenes. USB-C power makes them desk-friendly.
+            An IoT-enabled Arduino (ESP-class) publishes events and subscribes to commands. The pair can mirror each other’s color, act as remote dimmer knobs, or push values to home-automation systems. A single USB-C power port makes them desk-friendly.
           </p>
           <ul class="detail-list">
             <li>Bi-directional lamp-to-lamp color sync</li>
@@ -195,6 +194,7 @@
             <p><strong>Body:</strong> 3D-printed PLA (translucent top section)</p>
             <p><strong>Mechanism:</strong> Rotating outer shell with embedded magnets</p>
             <p><strong>Touch Pad:</strong> Copper disc centered on axis</p>
+            <p><strong>Rotation:</strong> Kept on axis with 3x bearings</p>
           </div>
         </div>
 
@@ -203,9 +203,10 @@
             <i data-lucide="cpu"></i><h3>Electronics</h3>
           </div>
           <div class="spec-content">
-            <p><strong>MCU:</strong> IoT-enabled Arduino-compatible (ESP-class)</p>
+            <p><strong>MCU:</strong> IoT-enabled Arduino (NANO 33 IoT) (ESP-class)</p>
             <p><strong>Sensing:</strong> Dual hall sensors (quadrature), capacitive touch IC</p>
             <p><strong>Lighting:</strong> Addressable LED ring under diffuser</p>
+            <p><strong>Power:</strong> Built in USB-C power plug</p>
           </div>
         </div>
 
@@ -268,16 +269,16 @@
   <!-- Call to Action -->
   <section class="section cta-section">
     <div class="container">
-      <h2 class="cta-title">Want details or firmware snippets?</h2>
-      <p class="cta-text">Happy to share schematics, print settings, and the rotation-decoder logic.</p>
+      <h2 class="cta-title">Interested in Learning More?</h2>
+      <p class="cta-text">I'd be happy to discuss this project in detail or explore career opportunities.</p>
       <div class="cta-buttons">
         <a href="mailto:jackthuston1@gmail.com" class="btn-cta-primary">
           <i data-lucide="mail"></i>
-          <span>Email Me</span>
+          <span>Get in Touch</span>
         </a>
         <a href="https://jack-huston.github.io/#projects" class="btn-cta-secondary">
           <i data-lucide="arrow-left"></i>
-          <span>Back to Projects</span>
+          <span>View Other Projects</span>
         </a>
       </div>
     </div>
