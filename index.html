@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IoT Interactive Button Lamp – Jack Huston</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>html{scroll-behavior:smooth;}</style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="https://jack-huston.github.io/#projects" class="nav-back-btn">
+        <i data-lucide="arrow-left"></i>
+        <span>Back to Portfolio</span>
+      </a>
+      <div class="nav-brand">
+        <i data-lucide="rocket" class="icon-nav"></i>
+        <span>Jack Huston</span>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i data-lucide="menu" id="menuIcon"></i>
+        <i data-lucide="x" id="closeIcon" style="display:none;"></i>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#how" class="nav-link">How It Works</a>
+        <a href="#build" class="nav-link">Build Details</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#overview" class="mobile-link">Overview</a>
+    <a href="#how" class="mobile-link">How It Works</a>
+    <a href="#build" class="mobile-link">Build Details</a>
+    <a href="#gallery" class="mobile-link">Gallery</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="project-hero">
+    <div class="project-hero-content">
+      <div class="project-badge">
+        <i data-lucide="wifi"></i>
+        <span>Embedded Systems & IoT</span>
+      </div>
+      <h1 class="project-hero-title">IoT Interactive Button Lamp</h1>
+      <p class="project-hero-subtitle">
+        A pair of internet-connected lamps with a magnet-ring rotary interface and capacitive touch control—designed, engineered, and programmed end-to-end.
+      </p>
+      <div class="project-meta">
+        <div class="meta-item">
+          <i data-lucide="user"></i><span>Solo Build</span>
+        </div>
+        <div class="meta-item">
+          <i data-lucide="tool"></i><span>Hobby Project</span>
+        </div>
+        <div class="meta-item">
+          <i data-lucide="cable"></i><span>USB-C Powered</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section id="overview" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">Project Overview</h2>
+
+      <div class="overview-grid">
+        <div class="overview-image-container">
+          <!-- Use your exterior render -->
+          <img src="lamp-exterior.jpg" alt="Exterior render of the interactive button lamp with a copper touch pad" class="overview-image" loading="lazy"/>
+          <div class="image-caption">Minimal exterior: copper capacitive touch pad centered on the rotation axis</div>
+        </div>
+
+        <div class="overview-content">
+          <div>
+            <h3 class="overview-heading">Idea</h3>
+            <p class="overview-text">
+              Build two identical desk lamps that double as tactile IoT controllers. A rotating outer shell with a hidden magnet ring drives input; a capacitive copper pad provides click/hold gestures. LEDs under a translucent PLA body glow through the surface for feedback and illumination.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="overview-heading">What They Can Do</h3>
+            <p class="overview-text">
+              Because they’re networked, the lamps can control brightness and color, set kitchen timers, or even send color “messages” between devices anywhere in the world. The design avoids a traditional rotary encoder (blocked by the axial touch pad) by sensing magnetic field rotation instead.
+            </p>
+          </div>
+
+          <div class="tech-stack">
+            <h3 class="tech-stack-title">Technologies & Tools</h3>
+            <div class="tech-tags">
+              <span class="tech-tag">C++ (Arduino)</span>
+              <span class="tech-tag">IoT (Wi-Fi)</span>
+              <span class="tech-tag">Hall-Effect Sensing</span>
+              <span class="tech-tag">Capacitive Touch</span>
+              <span class="tech-tag">LED Control</span>
+              <span class="tech-tag">3D Printing (PLA)</span>
+              <span class="tech-tag">CAD &amp; Mechanisms</span>
+              <span class="tech-tag">Electronics</span>
+              <span class="tech-tag">Manufacturing &amp; Test</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary visual: internals -->
+      <div class="overview-image-container" style="margin-top:1.5rem;">
+        <img src="lamp-internals.jpg" alt="Internal render showing magnet ring, hall sensors, PCB, and LED ring" class="overview-image" loading="lazy"/>
+        <div class="image-caption">Inside the lamp: 48-magnet ring, out-of-phase hall sensors, LED ring, and control PCB</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="section">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+
+      <div class="detail-card">
+        <div class="detail-icon-container">
+          <i data-lucide="rotate-ccw" class="detail-icon"></i>
+        </div>
+        <div class="detail-content">
+          <h3 class="detail-title">Magnet-Ring Rotation Sensing</h3>
+          <p class="detail-text">
+            A rotating outer housing carries a ring of <strong>48 permanent magnets</strong>. Two hall-effect sensors are mounted 90° electrical apart, producing out-of-phase signals. The microcontroller compares the phase relationship to determine <em>direction</em> and counts zero-crossings for <em>steps</em>, emulating an encoder without one.
+          </p>
+          <ul class="detail-list">
+            <li>Quadrature-style decoding from dual hall sensors</li>
+            <li>Debounce and hysteresis to reject micro-jitter</li>
+            <li>Adaptive step size for slow/fast user rotation</li>
+          </ul>
+          <div class="centered-media">
+            <img src="lamp-internals.jpg" alt="Exploded or sectional view emphasizing magnet ring and halls" loading="lazy"/>
+            <div class="image-caption">Magnet ring &amp; hall sensors provide robust rotary input with no shaft</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-card detail-card-reverse">
+        <div class="detail-icon-container">
+          <i data-lucide="touch" class="detail-icon"></i>
+        </div>
+        <div class="detail-content">
+          <h3 class="detail-title">Capacitive Touch &amp; Gestures</h3>
+          <p class="detail-text">
+            The top copper pad senses touch/hold/double-tap. Placing the pad on the rotation axis preserves symmetry and eliminates wiring through a spinning joint. Gestures gate modes (e.g., hold to pair, tap to confirm) while rotation adjusts the selected parameter.
+          </p>
+          <ul class="detail-list">
+            <li>Touch filtering with moving average + threshold tracking</li>
+            <li>Tap/hold/double-tap gesture state machine</li>
+            <li>LED feedback animations under translucent PLA</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="detail-card">
+        <div class="detail-icon-container">
+          <i data-lucide="wifi" class="detail-icon"></i>
+        </div>
+        <div class="detail-content">
+          <h3 class="detail-title">IoT Control &amp; Use Cases</h3>
+          <p class="detail-text">
+            An IoT-enabled Arduino (ESP-class) publishes events and subscribes to commands. The pair can mirror each other’s color, act as remote dimmer knobs, or push values to home-automation scenes. USB-C power makes them desk-friendly.
+          </p>
+          <ul class="detail-list">
+            <li>Bi-directional lamp-to-lamp color sync</li>
+            <li>Timer &amp; countdown indication via animations</li>
+            <li>Home-automation hooks for lighting scenes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Build details -->
+  <section id="build" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">Build Details</h2>
+
+      <div class="specs-grid">
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="ruler"></i><h3>Mechanical</h3>
+          </div>
+          <div class="spec-content">
+            <p><strong>Body:</strong> 3D-printed PLA (translucent top section)</p>
+            <p><strong>Mechanism:</strong> Rotating outer shell with embedded magnets</p>
+            <p><strong>Touch Pad:</strong> Copper disc centered on axis</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="cpu"></i><h3>Electronics</h3>
+          </div>
+          <div class="spec-content">
+            <p><strong>MCU:</strong> IoT-enabled Arduino-compatible (ESP-class)</p>
+            <p><strong>Sensing:</strong> Dual hall sensors (quadrature), capacitive touch IC</p>
+            <p><strong>Lighting:</strong> Addressable LED ring under diffuser</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="code"></i><h3>Firmware</h3>
+          </div>
+          <div class="spec-content">
+            <p><strong>Language:</strong> C++</p>
+            <p><strong>Features:</strong> Gesture FSM, rotation decoding, Wi-Fi sync</p>
+            <p><strong>Updates:</strong> Configurable modes &amp; animations</p>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-header">
+            <i data-lucide="plug-zap"></i><h3>Power &amp; I/O</h3>
+          </div>
+          <div class="spec-content">
+            <p><strong>Power:</strong> USB-C 5&nbsp;V</p>
+            <p><strong>Control:</strong> Local gestures + network commands</p>
+            <p><strong>Mount:</strong> Desk-friendly footprint</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="overview-image-container">
+        <!-- Swap with your clean internal render -->
+        <img src="lamp-internals.jpg" alt="Internal assembly highlighting PCB and LED ring under the top diffuser" class="overview-image" loading="lazy"/>
+        <div class="image-caption">Electronics &amp; LED ring tucked beneath the translucent top—light glows through the print</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section">
+    <div class="container-wide">
+      <h2 class="section-title">Project Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="lamp-exterior.jpg" alt="Exterior render of the lamp" loading="lazy">
+          <div class="gallery-caption">Exterior concept</div>
+        </div>
+        <div class="gallery-item">
+          <img src="lamp-internals.jpg" alt="Internal CAD showing magnet ring and PCB" loading="lazy">
+          <div class="gallery-caption">Internal CAD: magnet ring + PCB</div>
+        </div>
+        <div class="gallery-item">
+          <img src="pcb_board.jpg" alt="PCB prototype used for development" loading="lazy">
+          <div class="gallery-caption">Controller PCB prototype</div>
+        </div>
+        <div class="gallery-item">
+          <img src="sensor-in-space.jpg" alt="Fun render used as a mood image" loading="lazy">
+          <div class="gallery-caption">Mood render / lighting test</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="section cta-section">
+    <div class="container">
+      <h2 class="cta-title">Want details or firmware snippets?</h2>
+      <p class="cta-text">Happy to share schematics, print settings, and the rotation-decoder logic.</p>
+      <div class="cta-buttons">
+        <a href="mailto:jackthuston1@gmail.com" class="btn-cta-primary">
+          <i data-lucide="mail"></i>
+          <span>Email Me</span>
+        </a>
+        <a href="https://jack-huston.github.io/#projects" class="btn-cta-secondary">
+          <i data-lucide="arrow-left"></i>
+          <span>Back to Projects</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2025 Jack Huston.</span>
+      <i data-lucide="rocket" class="icon-footer"></i>
+      <span>Propelling aerospace innovation, one engine at a time.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Icons
+    lucide.createIcons();
+
+    // Mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      const open = mobileMenu.classList.contains('active');
+      menuIcon.style.display = open ? 'none' : 'block';
+      closeIcon.style.display = open ? 'block' : 'none';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        menuIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+      });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      navbar.style.backgroundColor = window.scrollY > 50
+        ? 'rgba(255, 255, 255, 0.98)'
+        : 'rgba(255, 255, 255, 0.95)';
+    });
+
+    setTimeout(() => lucide.createIcons(), 100);
+  </script>
+</body>
+</html>
