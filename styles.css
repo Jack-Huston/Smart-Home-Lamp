@@ -190,3 +190,18 @@ body{
   .section-title{font-size:2rem;}
   .detail-card{padding:1.5rem;}
 }
+/* Ensure absolute centering is relative to the bar, not the page */
+.nav-container {
+  position: relative; /* new */
+}
+
+/* On small screens, hide the brand text but keep the icon */
+@media (max-width: 767px) {
+  .nav-brand .brand-name {
+    display: none;      /* hide "Jack Huston" text */
+  }
+  .nav-brand {
+    gap: 0.25rem;       /* tighten spacing so the icon is compact */
+  }
+}
+
