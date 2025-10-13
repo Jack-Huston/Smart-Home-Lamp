@@ -74,9 +74,14 @@
 
       <div class="overview-grid">
         <div class="overview-image-container">
-          <!-- Use your exterior render -->
-          <img src="lamp-exterior.jpg" alt="Exterior render of the interactive button lamp with a copper touch pad" class="overview-image" loading="lazy"/>
+          <!-- Updated exterior render -->
+          <img src="full-body-render.jpg" alt="Exterior render of the interactive button lamp with a copper touch pad" class="overview-image" loading="lazy"/>
           <div class="image-caption">Minimal exterior: copper capacitive touch pad centered on the rotation axis</div>
+
+          <!-- Autoplay looping demo video with poster -->
+          <video class="overview-image" playsinline muted loop autoplay poster="usage-demo-cover.jpg" style="margin-top:1rem; border-radius:1rem;">
+            <source src="usage-demo.mp4" type="video/mp4"/>
+          </video>
         </div>
 
         <div class="overview-content">
@@ -113,8 +118,8 @@
 
       <!-- Secondary visual: internals -->
       <div class="overview-image-container" style="margin-top:1.5rem;">
-        <img src="lamp-internals.jpg" alt="Internal render showing magnet ring, hall sensors, PCB, and LED ring" class="overview-image" loading="lazy"/>
-        <div class="image-caption">Inside the lamp: 48-magnet ring, out-of-phase hall sensors, LED ring, and control PCB</div>
+        <img src="internal-model.jpg" alt="Internal render showing outer/inner housings, magnet ring, LED ring, bearings, and PCB (hall sensors not shown)" class="overview-image" loading="lazy"/>
+        <div class="image-caption">Inside the lamp: outer &amp; inner housings, 48-magnet ring, LED ring, bearings, and control PCB (hall sensors not shown)</div>
       </div>
     </div>
   </section>
@@ -138,9 +143,13 @@
             <li>Debounce and hysteresis to reject micro-jitter</li>
             <li>Adaptive step size for slow/fast user rotation</li>
           </ul>
+
+          <!-- New magnet ring movement video -->
           <div class="centered-media">
-            <img src="lamp-internals.jpg" alt="Exploded or sectional view emphasizing magnet ring and halls" loading="lazy"/>
-            <div class="image-caption">Magnet ring &amp; hall sensors provide robust rotary input with no shaft</div>
+            <video class="overview-image" playsinline muted loop autoplay poster="magnet-ring-movement-cover.jpg">
+              <source src="magnet-ring-movement.mp4" type="video/mp4"/>
+            </video>
+            <div class="image-caption">Magnet ring movement relative to the sensors (demonstration)</div>
           </div>
         </div>
       </div>
@@ -234,9 +243,9 @@
       </div>
 
       <div class="overview-image-container">
-        <!-- Swap with your clean internal render -->
-        <img src="lamp-internals.jpg" alt="Internal assembly highlighting PCB and LED ring under the top diffuser" class="overview-image" loading="lazy"/>
-        <div class="image-caption">Electronics &amp; LED ring tucked beneath the translucent top—light glows through the print</div>
+        <!-- Internal assembly photo of main components -->
+        <img src="main-components-image.jpeg" alt="Main components of the lamp assembled on a desk" class="overview-image" loading="lazy"/>
+        <div class="image-caption">Internal assembly: main components laid out and assembled on the bench</div>
       </div>
     </div>
   </section>
@@ -247,20 +256,36 @@
       <h2 class="section-title">Project Gallery</h2>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="lamp-exterior.jpg" alt="Exterior render of the lamp" loading="lazy">
-          <div class="gallery-caption">Exterior concept</div>
+          <img src="full-body-render.jpg" alt="Full body render of the lamp" loading="lazy">
+          <div class="gallery-caption">Full body render</div>
         </div>
         <div class="gallery-item">
-          <img src="lamp-internals.jpg" alt="Internal CAD showing magnet ring and PCB" loading="lazy">
-          <div class="gallery-caption">Internal CAD: magnet ring + PCB</div>
+          <img src="internal-model.jpg" alt="Internal model with housings, magnet ring, LED ring, bearings, and PCB" loading="lazy">
+          <div class="gallery-caption">Internal model</div>
         </div>
         <div class="gallery-item">
-          <img src="pcb_board.jpg" alt="PCB prototype used for development" loading="lazy">
-          <div class="gallery-caption">Controller PCB prototype</div>
+          <img src="full-lit-image.jpeg" alt="Lamp fully lit through the translucent top" loading="lazy">
+          <div class="gallery-caption">Fully lit through diffuser</div>
         </div>
         <div class="gallery-item">
-          <img src="sensor-in-space.jpg" alt="Fun render used as a mood image" loading="lazy">
-          <div class="gallery-caption">Mood render / lighting test</div>
+          <img src="lit-without-top-image.jpeg" alt="Lamp lit with the top removed" loading="lazy">
+          <div class="gallery-caption">Lit test without top</div>
+        </div>
+        <div class="gallery-item">
+          <img src="without-top-focused.jpeg" alt="Focused shot of internals without the top" loading="lazy">
+          <div class="gallery-caption">Internals detail</div>
+        </div>
+        <div class="gallery-item">
+          <img src="real-image-match.jpg" alt="Real unit next to render showing visual match" loading="lazy">
+          <div class="gallery-caption">Render ↔ real match</div>
+        </div>
+        <div class="gallery-item">
+          <img src="main-components-image.jpeg" alt="Main components assembled on desk" loading="lazy">
+          <div class="gallery-caption">Bench assembly</div>
+        </div>
+        <div class="gallery-item">
+          <img src="internal-model.jpg" alt="Internal view repeat for variety" loading="lazy">
+          <div class="gallery-caption">Internal perspective</div>
         </div>
       </div>
     </div>
